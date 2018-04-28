@@ -17,7 +17,7 @@ export default class SummonerSearchBox extends React.Component {
     super(props)
     this.state = {
       dropdownOpen: false,
-      region: 'Region',
+      region: 'NA',
       summonerName: '',
       isValid: false
     }
@@ -47,7 +47,7 @@ export default class SummonerSearchBox extends React.Component {
   };
 
   async onClickSummon () {
-    if (this.state.isValid && this.state.region !== 'Region') {
+    if (this.state.isValid) {
       this.props.onHideError()
       this.props.onLoading()
       this.props.onFetchSummonerMatches(this.state.summonerName, this.state.region)
@@ -73,7 +73,7 @@ export default class SummonerSearchBox extends React.Component {
       >
         <Input
           id='summoner-input-form'
-          placeholder='Summoner Name'
+          placeholder='Summoner Name e.g. RiotSchmick'
           type='text'
           value={this.state.summonerName}
           onChange={this.handleInputChange}
