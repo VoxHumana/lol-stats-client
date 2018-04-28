@@ -29,7 +29,7 @@ class App extends Component {
 
   async onFetchSummonerMatches (summonerName, region) {
     try {
-      const req = new Request(`/summoner/${summonerName}?region=${Regions[region.toLowerCase()]}`)
+      const req = new Request(`https://agile-garden-71195.herokuapp.com/summoner/${summonerName}?region=${Regions[region.toLowerCase()]}`)
       const res = await window.fetch(req)
       const data = await res.json()
       this.spinner = null

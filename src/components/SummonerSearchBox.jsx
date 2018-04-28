@@ -4,7 +4,7 @@ import Regions from '../regions'
 import {
   Input,
   InputGroup,
-  InputGroupButton,
+  InputGroupAddon,
   Button,
   ButtonGroup,
   Dropdown,
@@ -21,13 +21,15 @@ export default class SummonerSearchBox extends React.Component {
       summonerName: '',
       isValid: false
     }
-    this.regions = Object.keys(Regions).map((region) =>
-      <Region key={region} region={region.toUpperCase()} handleClick={this.selectRegion} />
-    )
+
     this.toggle = this.toggle.bind(this)
     this.selectRegion = this.selectRegion.bind(this)
     this.onClickSummon = this.onClickSummon.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
+
+    this.regions = Object.keys(Regions).map((region) =>
+      <Region key={region} region={region.toUpperCase()} handleClick={this.selectRegion} />
+    )
   }
 
   toggle () {
@@ -76,7 +78,7 @@ export default class SummonerSearchBox extends React.Component {
           value={this.state.summonerName}
           onChange={this.handleInputChange}
         />
-        <InputGroupButton>
+        <InputGroupAddon>
           <ButtonGroup>
             <Dropdown
               isOpen={this.state.dropdownOpen}
@@ -97,7 +99,7 @@ export default class SummonerSearchBox extends React.Component {
               onClick={this.onClickSummon}> Summon
             </Button>
           </ButtonGroup>
-        </InputGroupButton>
+        </InputGroupAddon>
       </InputGroup>)
   }
 }
