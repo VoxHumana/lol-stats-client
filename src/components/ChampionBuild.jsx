@@ -3,21 +3,22 @@ import Trinket from './Trinket'
 import EmptyItem from './EmptyItem'
 import ShopItem from './ShopItem'
 
-export default function ChampionBuild (props) {
-  const items = props.items.map(item => (item.name === 'empty' ? <EmptyItem /> : <ShopItem item={item} />))
+export default function ChampionBuild ({ items, trinket }) {
+  const itemList = items.map(item => (item.name === 'empty' ? <EmptyItem /> : <ShopItem item={item} />))
+  const trinketEle = trinket.name === 'empty' ? <EmptyItem /> : <Trinket trinket={trinket} />
   return (
     <div className='champion-build text-center'>
       <div className='shop-item-container'>
-        {items[0]}
-        {items[1]}
-        {items[2]}
+        {itemList[0]}
+        {itemList[1]}
+        {itemList[2]}
         <br />
-        {items[3]}
-        {items[4]}
-        {items[5]}
+        {itemList[3]}
+        {itemList[4]}
+        {itemList[5]}
       </div>
       <div className='trinket-container'>
-        <Trinket trinket={props.trinket} />
+        { trinketEle }
       </div>
     </div>)
 }

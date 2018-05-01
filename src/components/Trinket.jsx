@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Trinket (props) {
+export default function Trinket ({ trinket }) {
   return (<img
-    src={`http://ddragon.leagueoflegends.com/cdn/8.1.1/img/item/${props.trinket.image}`}
+    src={`http://ddragon.leagueoflegends.com/cdn/8.1.1/img/item/${trinket.image}`}
     className='trinket rounded'
-    alt={props.trinket.name}
+    alt={trinket.name}
   />)
 }

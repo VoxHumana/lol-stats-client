@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-export default function KDA (props) {
+export default function KDA ({ kills, deaths, assists }) {
   return (
     <div
       className='kda text-center'
@@ -10,23 +9,11 @@ export default function KDA (props) {
         <span>K / D / A</span>
       </div>
       <div>
-        <span className='kills'> {props.kills} </span>
+        <span className='kills'> { kills } </span>
         <span>/</span>
-        <span className='deaths'> {props.deaths} </span>
+        <span className='deaths'> { deaths } </span>
         <span>/</span>
-        <span className='assists'> {props.assists} </span>
+        <span className='assists'> { assists } </span>
       </div>
     </div>)
-}
-
-KDA.propTypes = {
-  kills: PropTypes.number,
-  deaths: PropTypes.number,
-  assists: PropTypes.number
-}
-
-KDA.defaultProps = {
-  kills: -1,
-  deaths: -1,
-  assists: -1
 }

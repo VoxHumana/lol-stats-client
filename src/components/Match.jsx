@@ -11,67 +11,62 @@ import KDA from './KDA'
 import Stats from './Stats'
 import ChampionBuild from './ChampionBuild'
 
-export default class Match extends React.Component {
-  constructor (props) {
-    super(props)
-    this.win = props.matchDetails.win
-    this.championDetails = (<ChampionDetails
-      champion={props.matchDetails.champion}
-      spells={props.matchDetails.summonerSpells}
-    />)
-    this.kda = (<KDA
-      kills={props.matchDetails.kills}
-      deaths={props.matchDetails.deaths}
-      assists={props.matchDetails.assists}
-    />)
-    this.stats = (<Stats
-      cs={props.matchDetails.cs}
-      gold={props.matchDetails.gold}
-      level={props.matchDetails.level}
-      duration={Math.round(props.matchDetails.gameDuration / 60)}
-    />)
-    this.build = (<ChampionBuild
-      items={props.matchDetails.items}
-      trinket={props.matchDetails.trinket}
-    />)
-  }
+export default function Match ({ matchDetails }) {
+  const win = matchDetails.win
+  const championDetails = (<ChampionDetails
+    champion={matchDetails.champion}
+    spells={matchDetails.summonerSpells}
+  />)
+  const kda = (<KDA
+    kills={matchDetails.kills}
+    deaths={matchDetails.deaths}
+    assists={matchDetails.assists}
+  />)
+  const stats = (<Stats
+    cs={matchDetails.cs}
+    gold={matchDetails.gold}
+    level={matchDetails.level}
+    duration={Math.round(matchDetails.gameDuration / 60)}
+  />)
+  const build = (<ChampionBuild
+    items={matchDetails.items}
+    trinket={matchDetails.trinket}
+  />)
 
-  render () {
-    return (
-      <Row
-        className='match-container'
-      >
-        <Col xs='12'>
-          <Card className={this.win ? 'bg-success' : 'bg-danger'}>
-            <CardBody>
-              <Container>
-                <Row>
-                  <Col
-                    xs='3'
-                  >
-                    {this.championDetails}
-                  </Col>
-                  <Col
-                    xs='3'
-                  >
-                    {this.kda}
-                  </Col>
-                  <Col
-                    xs='2'
-                  >
-                    {this.stats}
-                  </Col>
-                  <Col
-                    xs='4'
-                  >
-                    {this.build}
-                  </Col>
-                </Row>
-              </Container>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-    )
-  }
+  return (
+    <Row
+      className='match-container'
+    >
+      <Col xs='12'>
+        <Card className={win ? 'bg-success' : 'bg-danger'}>
+          <CardBody>
+            <Container>
+              <Row>
+                <Col
+                  xs='3'
+                >
+                  { championDetails }
+                </Col>
+                <Col
+                  xs='3'
+                >
+                  { kda }
+                </Col>
+                <Col
+                  xs='2'
+                >
+                  { stats }
+                </Col>
+                <Col
+                  xs='4'
+                >
+                  { build }
+                </Col>
+              </Row>
+            </Container>
+          </CardBody>
+        </Card>
+      </Col>
+    </Row>
+  )
 }
