@@ -5,12 +5,12 @@ const DEFAULT = {
 
 const error = (state = DEFAULT, action) => {
   switch (action.type) {
-    case 'SHOW':
+    case 'SHOW_ERROR':
       return {
         display: true,
         message: action.message
       }
-    case 'HIDE':
+    case 'HIDE_ERROR':
       return {
         display: false,
         message: ''

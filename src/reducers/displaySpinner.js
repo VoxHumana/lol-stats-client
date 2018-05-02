@@ -1,4 +1,4 @@
-const showSpinner = (state = false, action) => {
+const displaySpinner = (state = false, action) => {
   switch (action.type) {
     case 'SET_DISPLAY':
       return action.display
@@ -7,4 +7,4 @@ const showSpinner = (state = false, action) => {
   }
 }
 
-export default showSpinner
+export default displaySpinner
