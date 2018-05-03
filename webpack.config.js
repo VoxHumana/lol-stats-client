@@ -22,13 +22,9 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader?url=false']
       },
-      { test: /\.(png|jpg)$/,
+      { test: /\.(png|jpg|svg|gif)$/,
         use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 8000,
-            name: 'images/[hash]-[name].[ext]'
-          }
+          loader: 'file-loader'
         }]
       }
     ]
