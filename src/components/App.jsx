@@ -8,6 +8,7 @@ import '../App.css'
 import SummonerSearchBox from '../containers/SummonerSearchBox'
 import HeaderImage from './HeaderImage'
 import Spinner from './Spinner'
+import Background from '../assets/background.jpg'
 
 export default function App (props) {
   return (
